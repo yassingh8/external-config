@@ -1,11 +1,10 @@
 server:
-  port:8761
+  port: 8761
   servlet:
-    context-path:/eureka
-    
+  context-path: /eureka
+
 eureka:
-  client:
-    register-with-eureka:false
-    fetch-registry:false
-    
+  client: 
+  register-with-eureka: false
+  fetch-registry: false
 #eureka.dashboard.path=/eureka
