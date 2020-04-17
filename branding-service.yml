@@ -1,70 +1,66 @@
 server:
-  port:6000
+  port: 6000
 spring:
   data:
     mongodb:
-      authentication-database:admin
-      username:sapientgaming
-      password:sapientgaming
-      database:branding_collection
-      port:27017
+      authentication-database: admin
+      username: sapientgaming
+      password: sapientgaming
+      database: branding_collection
+      port: 27017
 eureka:
   instance:
-    preferIpAddress:true
+    preferIpAddress: true
   client:
-    fetchRegistry:true
+    fetchRegistry: true
 feign:
-  hystrix:
-    enabled:true
+  hystrix: enabled:true
 ---
 spring:
-  profiles:local
+  profiles: local
   data:
     mongodb:
-      host:localhost
+      host: localhost
 eureka:
   instance:
-    ipAddress:localhost
+    ipAddress: localhost
   client:
     serviceUrl:
-      defaultZone:http://localhost:8761/eureka/eureka
-      
----
-spring:
-  profiles:performance
-  data:
-    mongodb:
-      host:10.0.1.159
-eureka:
-  instance:
-    ipAddress:10.0.1.8
-  client:
-    serviceUrl:
-      defaultZone:http://10.0.1.176:8761/eureka/eureka
-      
----
-spring:
-  profiles:staging
-  data:
-    mongodb:
-      host:10.0.2.204
-eureka:
-  instance:
-    ipAddress:10.0.2.81
-  client:
-    serviceUrl:
-      defaultZone:http://10.0.2.140:8761/eureka/eureka
-      
----
-spring:
-  profiles:production
-  data:
-    mongodb:
-      host:10.0.1.63
-eureka:
-  instance:
-    ipAddress:10.0.1.108
-  client:
-    serviceUrl:
-      defaultZone:http://10.0.1.12:8761/eureka/eureka
+      defaultZone: http://localhost:8761/eureka/eureka
 
+---
+spring:
+  profiles: performance
+  data:
+    mongodb:
+      host: 10.0.1.159
+eureka:
+  instance:
+    ipAddress: 10.0.1.8
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.176:8761/eureka/eureka
+---
+spring:
+  profiles: staging
+  data:
+    mongodb:
+      host: 10.0.2.204
+eureka:
+  instance:
+    ipAddress: 10.0.2.81
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
+---
+spring:
+  profiles: production
+  data:
+    mongodb:
+      host: 10.0.1.63
+eureka:
+  instance:
+    ipAddress: 10.0.1.108
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.12:8761/eureka/eureka
