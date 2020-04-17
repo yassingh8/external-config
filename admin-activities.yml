@@ -3,59 +3,59 @@ server:
     8767
 eureka:
   instance:
-    preferIpAddress:true
-    instance-id:${spring.application.name}:${spring.application.instance_id:8060
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
   client:
-    fetchRegistry:true
-    defaultZone:http://localhost:8761/eureka/eureka
+    fetchRegistry: true
+    defaultZone: http://localhost:8761/eureka/eureka
 feign:
   hystrix:
-    enabled:true
+    enabled: true
 spring:
   data:
     mongodb:
-      port:27017
-      username:sapientgaming
-      password:sapientgaming
-      database:admin-activities
-      authentication-database:admin
-      host:localhost
+      port: 27017
+      username: sapientgaming
+      password: sapientgaming
+      database: admin-activities
+      authentication-database: admin
+      host: localhost
 ---
 spring:
-  profiles:performance
+  profiles: performance
   data:
     mongodb:
-      host:10.0.1.159
+      host: 10.0.1.159
 eureka:
   instance:
-    instance-id:${spring.application.name}:${spring.application.instance_id:8060
-    ipAddress:10.0.1.8
+    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+    ipAddress: 10.0.1.8
   client:
     serviceUrl:
-      defaultZone:http://10.0.1.176:8761/eureka/eureka
+      defaultZone: http://10.0.1.176:8761/eureka/eureka
 ---
 spring:
-  profiles:staging
+  profiles: staging
   data:
     mongodb:
-      host:10.0.2.204
+      host: 10.0.2.204
 eureka:
   instance:
-    instance-id:${spring.application.name}:${spring.application.instance_id:8060
-    ipAddress:10.0.2.81
+    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+    ipAddress: 10.0.2.81
   client:
     serviceUrl:
-      defaultZone:http://10.0.2.140:8761/eureka/eureka
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
 ---
 spring:
-  profiles:production
+  profiles: production
   data:
     mongodb:
-      host:10.0.1.63
+      host: 10.0.1.63
 eureka:
   instance:
-    instance-id:${spring.application.name}:${spring.application.instance_id:8060
-    ipAddress:10.0.1.108
+    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+    ipAddress: 10.0.1.108
   client:
     serviceUrl:
-      defaultZone:http://10.0.1.12:8761/eureka/eureka
+      defaultZone: http://10.0.1.12:8761/eureka/eureka
