@@ -3,7 +3,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/eureka
     fetchRegistry: true
-  instance: 
+  instance:
     ip-address: localhost
     preferIpAddress: true
 server:
@@ -12,7 +12,7 @@ feign:
   hystrix:
     enabled: true
 spring:
-  datasource: 
+  datasource:
     url: jdbc:postgresql://localhost:5432/notifications
     username: postgres
     password: postgres
@@ -27,42 +27,42 @@ ui_url: http://localhost:3000/app
 ---
 spring:
   profiles: staging
-  datasource: 
+  datasource:
     url: jdbc:postgresql://10.0.2.204:5432/notifications
     username: postgres
     password: secretPass
-eureka:  
-  instance: 
+eureka:
+  instance:
     ip-address: 10.0.2.81
   client:
     serviceUrl:
       defaultZone: http://10.0.2.140:8761/eureka/eureka
-ui_url=http://18.215.53.195/app
+ui_url: http://18.215.53.195/app
 ---
 spring:
   profiles: performance
-  datasource: 
+  datasource:
     url: jdbc:postgresql://10.0.1.176:5432/notifications
     username: postgres
     password: postgres
 eureka:
-  instance: 
+  instance:
     ip-address: 10.0.1.46
   client:
     serviceUrl:
       defaultZone: http://10.0.1.8:8761/eureka/eureka
-ui_url=http://18.215.53.195/app
+ui_url: http://18.215.53.195/app
 ---
 spring:
   profiles: production
-  datasource: 
+  datasource:
     url: jdbc:postgresql://10.0.1.63:5432/notifications
     username: postgres
     password: adInfinitumX
 eureka:
-  instance: 
+  instance:
     ip-address: 10.0.2.108
   client:
     serviceUrl:
       defaultZone: http://10.0.1.12:8761/eureka/eureka
-ui_url=http://18.210.136.97/app
+ui_url: http://18.210.136.97/app
