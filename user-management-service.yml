@@ -15,7 +15,7 @@ spring:
   http:
     multipart:
       max-file-size: 500000KB
-      max-request-size=500000KB
+      max-request-size: 500000KB
   datasource: 
     url: jdbc:postgresql://localhost:5432/user_management
     username: user_management
