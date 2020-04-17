@@ -1,0 +1,61 @@
+#oauth_code_url=/oauth/authorize?client_id=guest&response_type=code&scope=read
+server:
+  port: 8061
+  servlet:
+    context-path: /secure
+client_id: guest
+client_secret: secret
+oauth_host: http://localhost
+accessTokenValidity: 1800
+eureka:
+  client:
+    fetchRegistry: true
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    username: login
+    password: adinfinitumx
+    driver-class-name: org.postgresql.Driver
+---
+spring:
+  profiles: performance
+  datasource:
+    url: jdbc:postgresql://10.0.1.159:5432/postgres
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.176:8761/eureka/eureka
+
+ui_url: http://52.205.229.238/app
+---
+spring:
+  profiles: staging
+  datasource:
+    url: jdbc:postgresql://10.0.2.204:5432/postgres
+    username: postgres
+    password: secretPass
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
+
+ui_url: http://18.215.53.195/app
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:postgresql://10.0.1.63:5432/postgres
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.12:8761/eureka/eureka
+
+ui_url: http://18.210.136.97/app

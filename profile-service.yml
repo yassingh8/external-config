@@ -1,0 +1,63 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/eureka
+    fetchRegistry: true
+  instance: 
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+server:
+  port: 0
+feign:
+  hystrix:
+    enabled: true
+spring:
+  datasource: 
+    url: jdbc:postgresql://localhost:5432/gamingdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+---
+spring:
+  profiles: staging
+  datasource: 
+    url: jdbc:postgresql://10.0.2.204:5432/gamingdb
+    username: postgres
+    password: secretPass
+eureka:  
+  instance: 
+    ip-address: 10.0.2.81
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
+---
+spring:
+  profiles: performance
+  datasource: 
+    url: jdbc:postgresql://10.0.1.176:5432/gamingdb
+    username: postgres
+    password: admin
+eureka:
+  instance: 
+    ip-address: 10.0.1.46
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.8:8761/eureka/eureka
+---
+spring:
+  profiles: production
+  datasource: 
+    url: jdbc:postgresql://10.0.1.63:5432/rules
+    username: pod2
+    password: savygap
+eureka:
+  instance: 
+    ip-address: 10.0.2.108
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.12:8761/eureka/eureka

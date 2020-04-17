@@ -1,0 +1,44 @@
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/eureka
+    fetchRegistry: true
+  instance: 
+    preferIpAddress: true
+server:
+  port: 8762
+  servlet:
+    context-path: /api
+feign:
+  hystrix:
+    enabled: true
+oauth_url: http://localhost:8080/secure
+client_id: guest
+client_secret: secret
+user: /api/profile-service/**,/api/login-service/**,/api/user-management-service/**
+admin: /api/dashboard-service/**,/api/branding-service/**
+---
+spring:
+  profiles: staging
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
+oauth_url: http://18.215.53.195/secure
+---
+spring:
+  profiles: performance
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.176:8761/eureka/eureka
+oauth_url: http://52.205.229.238/secure
+---
+spring:
+  profiles: production
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.12:8761/eureka/eureka
+oauth_url: http://18.215.53.195/secure
