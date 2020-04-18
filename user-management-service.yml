@@ -48,7 +48,7 @@ ui_url: http://18.215.53.195/app
 spring:
   profiles: performance
   datasource: 
-    url: jdbc:postgresql://10.0.1.176:5432/user_management
+    url: jdbc:postgresql://10.0.1.159:5432/user_management
     username: postgres
     password: postgres
 eureka:
