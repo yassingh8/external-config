@@ -1,0 +1,98 @@
+server:
+  port: 7500
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sahilvora0409@gmail.com
+    password: iqjokadimzjnqvhr
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+
+    listener:
+      missing-topics-fatal: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+topics: forgetpassword,changepassword,newuser,socialmedia,coursecomplete,startreminder
+
+forgetpassword: Forgot your Password?
+changepassword: Your Password has changed.
+newuser: Welcome to Publicis Sapient Gamification Application
+socialmedia: Social Media Alert
+coursecomplete: Congratulations, Your Course Certificate is Ready!
+startreminder: We haven't seen you in a while.
+
+---
+spring:
+  profiles: staging
+  kafka:
+    producer:
+      bootstrap-servers: http://10.0.2.220:9092
+    consumer:
+      bootstrap-servers: http://10.0.2.220:9092
+
+  datasource:
+    url: jdbc:postgresql://10.0.2.204:5432/notifications
+    username: postgres
+    password: secretPass
+
+eureka:
+  instance:
+    ip-address: 10.0.2.81
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
+---
+spring:
+  profiles: production
+  kafka:
+    producer:
+      bootstrap-servers: http://10.0.1.196:9092
+    consumer:
+      bootstrap-servers: http://10.0.1.196:9092
+  datasource:
+    url: jdbc:postgresql://10.0.1.63:5432/notifications
+    username: postgres
+    password: adInfinitumX
+
+eureka:
+  instance:
+    ip-address: 10.0.2.108
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.12:8761/eureka/eureka
