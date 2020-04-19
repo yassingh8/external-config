@@ -48,7 +48,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
 
-topics: forgetpassword,changepassword,newuser,socialmedia,coursecomplete,startreminder
+topics: "forgetpassword,changepassword,newuser,socialmedia,coursecomplete,startreminder"
 
 forgetpassword: Forgot your Password?
 changepassword: Your Password has changed.
