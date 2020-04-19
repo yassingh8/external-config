@@ -1,0 +1,69 @@
+server:
+  port: 8000
+
+eureka:
+  instance:
+    preferIpAddress: true
+
+  client:
+    fetchRegistry: true
+
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+        json:
+          trusted:
+            packages: "*"
+          add:
+            type:
+              headers: false
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+---
+spring:
+  profiles: staging
+  kafka:
+    producer:
+      bootstrap-servers: http://10.0.2.220:9092
+  datasource:
+    url: jdbc:postgresql://10.0.2.204:5432/notifications
+    username: postgres
+    password: secretPass
+
+eureka:
+  instance:
+    ip-address: 10.0.2.81
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.2.140:8761/eureka/eureka
+---
+spring:
+  profiles: production
+  kafka:
+    producer:
+      bootstrap-servers: http://10.0.1.196:9092
+  datasource:
+    url: jdbc:postgresql://10.0.1.63:5432/notifications
+    username: postgres
+    password: adInfinitumX
+
+eureka:
+  instance:
+    ip-address: 10.0.2.108
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.1.12:8761/eureka/eureka
