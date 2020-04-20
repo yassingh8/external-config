@@ -20,6 +20,14 @@ spring:
       database: admin-activities
       authentication-database: admin
       host: localhost
+cloud:
+  aws:
+    region.static: us-east-1
+    credentials:
+      accessKey: AKIAUZHLFVP2EVWAFHR7
+      secretKey: 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
+    stack:
+      auto: false
 ---
 spring:
   profiles: performance
