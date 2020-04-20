@@ -16,7 +16,7 @@ feign:
 oauth_url: http://localhost:8080/secure
 client_id: guest
 client_secret: secret
-user: /api/profile-service/**,/api/login-service/**,/api/user-management-service/**
+user: /api/profile-service/**,/api/login-service/**,/api/user-management-service/**,/api/admin-activities/activity
 admin: /api/dashboard-service/**,/api/branding-service/**
 ---
 spring:
