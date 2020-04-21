@@ -4,7 +4,7 @@ server:
 eureka:
   instance:
     preferIpAddress: true
-    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
   client:
     fetchRegistry: true
     defaultZone: http://localhost:8761/eureka/eureka
@@ -28,7 +28,7 @@ spring:
       host: 10.0.1.159
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+ #   instance-id: ${spring.application.name}:${spring.application.instance_id:8060
     ipAddress: 10.0.1.8
   client:
     serviceUrl:
@@ -41,7 +41,7 @@ spring:
       host: 10.0.2.204
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+  #  instance-id: ${spring.application.name}:${spring.application.instance_id:8060
     ipAddress: 10.0.2.81
   client:
     serviceUrl:
@@ -54,7 +54,7 @@ spring:
       host: 10.0.1.63
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:8060
+  #  instance-id: ${spring.application.name}:${spring.application.instance_id:8060
     ipAddress: 10.0.1.108
   client:
     serviceUrl:
