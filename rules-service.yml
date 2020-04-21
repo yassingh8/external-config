@@ -40,15 +40,15 @@ eureka:
 spring:
   profiles: performance
   datasource: 
-    url: jdbc:postgresql://10.0.1.176:5432/rules
+    url: jdbc:postgresql://10.0.1.159:5432/rules
     username: postgres
     password: postgres
 eureka:
   instance: 
-    ip-address: 10.0.1.46
+    ip-address: 10.0.1.8
   client:
     serviceUrl:
-      defaultZone: http://10.0.1.8:8761/eureka/eureka
+      defaultZone: http://10.0.1.176:8761/eureka/eureka
 ---
 spring:
   profiles: production
