@@ -3,10 +3,12 @@ server:
   port: 8061
   servlet:
     context-path: /secure
+    
 client_id: guest
 client_secret: secret
-oauth_host: http://localhost
-accessTokenValidity: 1800
+token_validity: 3600
+oauth_host: http://localhost:8061/secure
+
 eureka:
   client:
     fetchRegistry: true
@@ -53,7 +55,7 @@ ui_url: http://18.215.53.195/app
 spring:
   profiles: production
   datasource:
-    url: jdbc:postgresql://10.0.1.63:5432/postgres
+    url: jdbc:postgresql://10.0.1.63:5432/user_management
 
 eureka:
   client:
